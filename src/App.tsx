@@ -4,13 +4,14 @@
  */
 
 import React, { useState } from 'react';
-import { FileText, Grid, FileType, Layers } from 'lucide-react';
+import { FileText, Grid, FileType, Layers, Scissors } from 'lucide-react';
 import { cn } from './lib/utils';
 import MultiReceipt from './components/MultiReceipt';
 import PdfToWord from './components/PdfToWord';
 import PdfMerger from './components/PdfMerger';
+import PdfSplitter from './components/PdfSplitter';
 
-type Tab = 'receipts' | 'pdf2word' | 'pdfmerge';
+type Tab = 'receipts' | 'pdf2word' | 'pdfmerge' | 'pdfsplit';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<Tab>('receipts');
@@ -73,6 +74,18 @@ export default function App() {
               <Layers size={18} />
               PDF Merger
             </button>
+            <button
+              onClick={() => setActiveTab('pdfsplit')}
+              className={cn(
+                "py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors",
+                activeTab === 'pdfsplit' 
+                  ? "border-red-600 text-red-600"
+                  : "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300"
+              )}
+            >
+              <Scissors size={18} />
+              PDF Splitter
+            </button>
           </nav>
         </div>
       </div>
@@ -81,6 +94,7 @@ export default function App() {
         {activeTab === 'receipts' && <MultiReceipt />}
         {activeTab === 'pdf2word' && <PdfToWord />}
         {activeTab === 'pdfmerge' && <PdfMerger />}
+        {activeTab === 'pdfsplit' && <PdfSplitter />}
       </main>
     </div>
   );
