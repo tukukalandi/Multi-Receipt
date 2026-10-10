@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Post Office Document & Image Converter Suite",
+  "description": "Comprehensive document & image utility for PDF receipt printing, JPG/JPEG to PDF, PNG to PDF, PDF merge & split, Word to PDF, PDF to Word, Word to Excel, Excel to Word, and image format conversions.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
